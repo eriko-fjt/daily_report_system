@@ -23,7 +23,6 @@ public class EmployeeValidator {
         }
 
 
-
         String name_error = _validateName(e.getName());
 
         if(!name_error.equals("")) {
@@ -44,7 +43,7 @@ public class EmployeeValidator {
     // 社員番号のチェック
     private static String _validateCode(String code, Boolean code_duplicate_check_flag) {
 
-        if(code ==   null || code.equals("")) {
+        if(code == null || code.equals("")) {
 
             return "社員番号を入力してください。";
         }
@@ -54,8 +53,8 @@ public class EmployeeValidator {
         if(code_duplicate_check_flag) {
             EntityManager em = DBUtil.createEntityManager();
             long employees_count = (long)em.createNamedQuery("checkRegisteredCode", Long.class)
-                                    .setParameter("code", code)
-                                    .getSingleResult();
+                                               .setParameter("code", code)
+                                                   .getSingleResult();
 
             em.close();
 
@@ -70,6 +69,7 @@ public class EmployeeValidator {
     // 社員名の必須入力チェック
     private static String _validateName(String name) {
         if(name == null || name.equals("")) {
+
             return "氏名を入力してください。";
         }
         return "";
@@ -81,6 +81,7 @@ public class EmployeeValidator {
 
         // パスワード変更時のみ実行
         if(password_check_flag && (password == null || password.equals(""))) {
+
             return "パスワードを入力してください。";
         }
 
