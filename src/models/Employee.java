@@ -20,7 +20,7 @@ import javax.persistence.Table;
             query = "SELECT e FROM Employee AS e ORDER BY e.id DESC"
             ),
     @NamedQuery(
-            name = "getEmployeeCount",
+            name = "getEmployeesCount",
             query = "SELECT COUNT(e) FROM Employee AS e"
             ),
     @NamedQuery(
@@ -149,16 +149,6 @@ public class Employee {
     public void setDelete_flag(Integer delete_flag) {
         this.delete_flag = delete_flag;
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
